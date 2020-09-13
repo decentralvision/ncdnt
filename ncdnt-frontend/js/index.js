@@ -21,9 +21,29 @@ const initAutocomplete = () => {
 }
 
 const renderReport = (reportHash) => {
-    console.log(reportHash)
+    //to do
+    img_url = reportHash.attributes.
     event_desc = reportHash.attributes.event_desc.slice(0, 10)
     document.getElementById("touchMe").innerHTML = event_desc;
+
+    const column = document.createElement("div")
+    column.className = "col s12 m4 l4"
+        const card = document.createElement("div")
+        card.className="card"
+            const cardImageDiv = document.createElement("div")
+            cardImageDiv.className="card-image waves-effect waves-block waves-light"
+                const cardImage = document.createElement("img")
+                cardImage.className="activator"
+                cardImage.src="img/project1.jpg"
+            const cardContent = document.createElement("div")
+            cardContent.className="card-content"
+                const cardTitle = document.createElement("span")
+                cardTitle.className = "card-title grey-text text-darken-4"
+                const cardMore = document.createElement("i")
+                cardMore.className = "mdi-navigation-more-vert right"
+                const event_desc = document.createElement("p")
+                event_desc.innerHTML = reportHash.attributes.event_desc.slice(0, 10)
+                
 }
 
 const createMap = () => {
