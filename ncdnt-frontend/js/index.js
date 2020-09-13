@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => onLoad())
 const renderReport = (reportHash) => {
     //to do
     // img_url = reportHash.attributes.
-    const event_desc = reportHash.attributes.event_desc.slice(0, 10)
+    const event_desc = reportHash.attributes.event_desc
     // document.getElementById("touchMe").innerHTML = event_desc;
 
     const column = document.createElement("div")
@@ -34,14 +34,43 @@ const renderReport = (reportHash) => {
             const cardContent = document.createElement("div")
             cardContent.className="card-content"
                 const cardTitle = document.createElement("span")
-                cardTitle.classList = "card-title grey-text text-darken-4"
+                cardTitle.classList = "card-title activator grey-text text-darken-4"
+                // cardTitle.innerText = ~~JSON DATE TO DO~~
                 const cardMore = document.createElement("i")
                 cardMore.classList = "mdi-navigation-more-vert right"
+  
                 
             const cardDetails = document.createElement("div")
-                cardDetails.className="card-reveal"
-                const e_desc = document.createElement("p")
-                event_desc.innerHTML = reportHash.attributes.event_desc.slice(0, 10)
+            cardDetails.className="card-reveal"
+                const eventP = document.createElement("p")
+                eventP.innerHTML = event_desc
+
+                const detailsTitle = document.createElement("span")
+                detailsTitle.classList = "card-title grey-text text-darken-4"
+
+                const cardExit = document.createElement("i")
+                cardExit.classList = "mdi-navigation-close right"
+
+        //append card image to card
+        cardImageDiv.appendChild(cardImage)
+
+        //append more button to title and and title to card face
+        cardTitle.appendChild(cardMore)
+        cardContent.appendChild(cardTitle)
+
+        //append exit button to title and title to details card
+        detailsTitle.appendChild(cardExit)
+        cardDetails.appendChild(detailsTitle)
+        //append report event desc to card details
+        cardDetails.appendChild(eventP)
+        //append card elements to card
+        card.appendChild(cardImageDiv)
+        card.appendChild(cardContent)
+        card.appendChild(cardDetails)
+        //append card to column
+        column.appendChild(card)
+        //append column to reports div 
+        $("#reports .row")[0].appendChild(column)
 }   
 
 const createMap = () => {
