@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  s_desc: MyString
-  e_desc: MyString
+  lat: 1.5
+  lng: 1.5
+  report_id: 1
 
 two:
-  s_desc: MyString
-  e_desc: MyString
+  lat: 1.5
+  lng: 1.5
+  report_id: 1
