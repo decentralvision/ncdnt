@@ -2,12 +2,14 @@
 const BASE_URL = "http://localhost:3000"
 const REPORTS_URL = `${BASE_URL}/reports`
 const main = document.querySelector("main")
+
 document.addEventListener("DOMContentLoaded", () => initAutocomplete())
 
 
 const initAutocomplete = () => {
-        fetch(REPORTS_URL)
-        .then(res => res.json())
+
+    fetch(REPORTS_URL)
+    .then(res => res.json())
     .then(json => {
         json.data.forEach(report=> renderReport(report))
     })
