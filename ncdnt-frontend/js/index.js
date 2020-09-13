@@ -3,48 +3,46 @@ const BASE_URL = "http://localhost:3000"
 const REPORTS_URL = `${BASE_URL}/reports`
 const main = document.querySelector("main")
 
-document.addEventListener("DOMContentLoaded", () => initAutocomplete())
-
-
-const initAutocomplete = () => {
-
-    fetch(REPORTS_URL)
-    .then(res => res.json())
-    .then(json => {
-        json.data.forEach(report=> renderReport(report))
-    })
-    const mobileMenu = document.getElementById("nav-mobile")
-    const desktopMenu = document.getElementById("nav-desktop")
-    renderMenu(mobileMenu, menuParams)
-    renderMenu(desktopMenu, menuParams)
-    createMap()
-}
+document.addEventListener("DOMContentLoaded", () => onLoad())
+    const onLoad = () => {
+        fetch(REPORTS_URL)
+        .then(res => res.json())
+        .then(json => {
+            json.data.forEach(report => renderReport(report))
+        })
+        const mobileMenu = document.getElementById("nav-mobile")
+        const desktopMenu = document.getElementById("nav-desktop")
+        renderMenu(mobileMenu, menuParams)
+        renderMenu(desktopMenu, menuParams)
+    }
 
 const renderReport = (reportHash) => {
     //to do
-    img_url = reportHash.attributes.
-    event_desc = reportHash.attributes.event_desc.slice(0, 10)
-    document.getElementById("touchMe").innerHTML = event_desc;
+    // img_url = reportHash.attributes.
+    const event_desc = reportHash.attributes.event_desc.slice(0, 10)
+    // document.getElementById("touchMe").innerHTML = event_desc;
 
     const column = document.createElement("div")
-    column.className = "col s12 m4 l4"
+    column.classList = "col s12 m4 l4"
         const card = document.createElement("div")
         card.className="card"
             const cardImageDiv = document.createElement("div")
-            cardImageDiv.className="card-image waves-effect waves-block waves-light"
+            cardImageDiv.classList="card-image waves-effect waves-block waves-light"
                 const cardImage = document.createElement("img")
                 cardImage.className="activator"
                 cardImage.src="img/project1.jpg"
             const cardContent = document.createElement("div")
             cardContent.className="card-content"
                 const cardTitle = document.createElement("span")
-                cardTitle.className = "card-title grey-text text-darken-4"
+                cardTitle.classList = "card-title grey-text text-darken-4"
                 const cardMore = document.createElement("i")
-                cardMore.className = "mdi-navigation-more-vert right"
-                const event_desc = document.createElement("p")
-                event_desc.innerHTML = reportHash.attributes.event_desc.slice(0, 10)
+                cardMore.classList = "mdi-navigation-more-vert right"
                 
-}
+            const cardDetails = document.createElement("div")
+                cardDetails.className="card-reveal"
+                const e_desc = document.createElement("p")
+                event_desc.innerHTML = reportHash.attributes.event_desc.slice(0, 10)
+}   
 
 const createMap = () => {
     const map = new google.maps.Map(document.getElementById('map'), {

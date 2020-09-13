@@ -318,8 +318,22 @@
     <!--  Scripts-->
     <script src="min/plugin-min.js"></script>
     <script src="min/custom-min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBAneFzNBHiiM-bqqVR_orqqtsyCbsj-o&libraries=places&callback=initAutocomplete" async defer></script>
     <script src="js/index.js"></script>
-    
+    <script>
+        function initAutocomplete() {
+            const createMap = () => {
+                const map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 39, lng: -95},
+                    zoom: 4,
+                    mapTypeId: 'hybrid',
+                    disableDefaultUI: true,
+                    zoomControl: true
+                });
+                }
+            createMap()
+        }
+    </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBAneFzNBHiiM-bqqVR_orqqtsyCbsj-o&libraries=places&callback=initAutocomplete" defer async ></script>
     </body>
 </html>
