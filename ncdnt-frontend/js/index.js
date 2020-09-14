@@ -20,6 +20,8 @@ const renderReport = (reportHash) => {
     //to do
     // img_url = reportHash.attributes.
     const event_desc = reportHash.attributes.event_desc
+    const susp_desc = reportHash.attributes.suspect_desc
+    const event_date = reportHash.attributes.created_at
     // document.getElementById("touchMe").innerHTML = event_desc;
 
     const column = document.createElement("div")
@@ -35,13 +37,15 @@ const renderReport = (reportHash) => {
             cardContent.className="card-content"
                 const cardTitle = document.createElement("span")
                 cardTitle.classList = "card-title activator grey-text text-darken-4"
-                // cardTitle.innerText = ~~JSON DATE TO DO~~
+                cardTitle.innerText = `${event_date.slice(5,7)}-${event_date.slice(8,10)}-${event_date.slice(2,4)}`
                 const cardMore = document.createElement("i")
                 cardMore.classList = "mdi-navigation-more-vert right"
   
                 
             const cardDetails = document.createElement("div")
             cardDetails.className="card-reveal"
+                const susP = document.createElement("p")
+                susP.innerHTML = susp_desc
                 const eventP = document.createElement("p")
                 eventP.innerHTML = event_desc
 
@@ -61,8 +65,9 @@ const renderReport = (reportHash) => {
         //append exit button to title and title to details card
         detailsTitle.appendChild(cardExit)
         cardDetails.appendChild(detailsTitle)
-        //append report event desc to card details
+        //append report event & susp desc to card details
         cardDetails.appendChild(eventP)
+        cardDetails.appendChild(susP)
         //append card elements to card
         card.appendChild(cardImageDiv)
         card.appendChild(cardContent)
