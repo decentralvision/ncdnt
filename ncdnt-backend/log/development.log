@@ -10193,3 +10193,301 @@ Processing by ReportsController#index as */*
 Completed 200 OK in 525ms (Views: 207.6ms | ActiveRecord: 294.5ms | Allocations: 54016)
 
 
+Started GET "/reports" for ::1 at 2020-09-13 17:50:13 -0700
+  
+SyntaxError (/Users/tom/Development/ncdnt/ncdnt-backend/app/controllers/reports_controller.rb:4: syntax error, unexpected '\n', expecting =>):
+  
+app/controllers/reports_controller.rb:4: syntax error, unexpected '\n', expecting =>
+app/controllers/reports_controller.rb:4: syntax error, unexpected '\n', expecting =>
+Started GET "/reports" for ::1 at 2020-09-13 17:50:53 -0700
+Processing by ReportsController#index as */*
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 3046)
+
+
+  
+NoMethodError (undefined method `to_sym' for ["comments.comment_text"]:Array
+Did you mean?  to_s
+               to_set):
+  
+app/controllers/reports_controller.rb:7:in `new'
+app/controllers/reports_controller.rb:7:in `index'
+Started GET "/reports" for ::1 at 2020-09-13 17:52:24 -0700
+Processing by ReportsController#index as */*
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 3007)
+
+
+  
+NoMethodError (undefined method `to_sym' for [:comments, :"comments.comment_text"]:Array
+Did you mean?  to_s
+               to_set):
+  
+app/controllers/reports_controller.rb:7:in `new'
+app/controllers/reports_controller.rb:7:in `index'
+Started GET "/reports" for ::1 at 2020-09-13 17:54:10 -0700
+Processing by ReportsController#index as */*
+  [1m[36mReport Load (13.8ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (15.4ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (3.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (2.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+Completed 200 OK in 359ms (Views: 170.5ms | ActiveRecord: 180.1ms | Allocations: 55034)
+
+
+Started GET "/reports" for ::1 at 2020-09-13 17:54:21 -0700
+Processing by ReportsController#index as */*
+  [1m[36mReport Load (21.7ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (17.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (1.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (2.9ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (6.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (22.0ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (52.4ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (8.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (3.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (34.0ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (11.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (15.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+Completed 200 OK in 380ms (Views: 165.0ms | ActiveRecord: 213.8ms | Allocations: 36081)
+
+
+Started GET "/reports" for ::1 at 2020-09-13 17:54:45 -0700
+Processing by ReportsController#index as */*
+  [1m[36mReport Load (2.4ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (1.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (1.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+Completed 200 OK in 96ms (Views: 79.9ms | ActiveRecord: 15.8ms | Allocations: 36080)
+
+
+Started GET "/reports" for ::1 at 2020-09-13 17:55:52 -0700
+Processing by ReportsController#index as */*
+  [1m[36mReport Load (2.6ms)[0m  [1m[34mSELECT "reports".* FROM "reports"[0m
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.8ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (2.0ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 3]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (5.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 4]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (4.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 5]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (7.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 6]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (1.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (0.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 7]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (15.2ms)[0m  [1m[34mSELECT "comments"."id" FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[35m (26.4ms)[0m  [1m[34mSELECT "images"."id" FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mLocation Load (7.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."report_id" = $1 LIMIT $2[0m  [["report_id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+  [1m[36mImage Load (32.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."report_id" = $1[0m  [["report_id", 8]]
+  ↳ app/controllers/reports_controller.rb:7:in `index'
+Completed 200 OK in 259ms (Views: 127.3ms | ActiveRecord: 131.5ms | Allocations: 36080)
+
+
