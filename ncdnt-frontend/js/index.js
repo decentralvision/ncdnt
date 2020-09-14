@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => onLoad())
         fetch(REPORTS_URL)
         .then(res => res.json())
         .then(json => {
-            json.data.forEach(report => renderReport(report))
+            json.data.forEach(report => renderReport(report, json.included))
         })
         const mobileMenu = document.getElementById("nav-mobile")
         const desktopMenu = document.getElementById("nav-desktop")
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => onLoad())
         renderMenu(desktopMenu, menuParams)
     }
 
-const renderReport = (reportHash) => {
+const renderReport = (reportHash, children) => {
+    // reportHash.images
     //to do
     // img_url = reportHash.attributes.
     const event_desc = reportHash.attributes.event_desc

@@ -1,10 +1,8 @@
 class ReportsController < ApplicationController
     def index
-        options = {
-            include: [:'comments', :"comments.comment_text", :'images', :'images.image_link', :'images', :'location', :'location.lat', :'location.lng']
-          }
+
         reports = Report.all
-        render json: ReportSerializer.new(reports, options)
+        render json: ReportSerializer.new(reports)
     end
     def new
         Report.new(report_params)
