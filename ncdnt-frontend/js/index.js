@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => onLoad())
                     .then(json => {
                         $("div.container h2.header.text_b")[0].innerText = `There are ${json.data.length} reports.`
                     })
-                
             } else {
                 $("div.container h2.header.text_b")[0].innerText = "Reports"
             }
