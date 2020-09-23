@@ -1,28 +1,70 @@
-  
 const BASE_URL = "http://localhost:3000"
 const REPORTS_URL = `${BASE_URL}/reports`
 const main = document.querySelector("main")
 
+
+class Report {
+    constructor(reportHash){
+        this.event_desc = reportHash.attributes.event_desc
+        this.suspect_desc = reportHash.attributes.suspect_desc
+        this.event_date = reportHash.attributes.created_at
+        this.images = reportHash.attributes.images
+        this.commments = reportHash.attributes.images
+        this.location = reportHash.attributes.location
+    }
+}
+
+//onload creates the menu and reports list from basic html divs
 document.addEventListener("DOMContentLoaded", () => onLoad())
     const onLoad = () => {
         getReportCards()
         const mobileMenu = document.getElementById("nav-mobile")
         const desktopMenu = document.getElementById("nav-desktop")
+        const menuParams = {}
+        const divList = $(".section.scrollspy")
+        divList.each(function(index, section) {
+            sectionName = section.id
+            menuParams[toTitleCase(sectionName)] = `#${sectionName}`
+        })
+        //render mobile and desktop menus
         renderMenu(mobileMenu, menuParams)
         renderMenu(desktopMenu, menuParams)
+        //add fun link to reports Title
+        $("div.container h2.header.text_b")[0].addEventListener("click", function() {
+            if ($("div.container h2.header.text_b")[0].innerText == "Reports") {
+                fetch(REPORTS_URL)
+                    .then(res => res.json())
+                    .then(json => {
+                        $("div.container h2.header.text_b")[0].innerText = `There are ${json.data.length} reports.`
+                    })
+                
+            } else {
+                $("div.container h2.header.text_b")[0].innerText = "Reports"
+            }
+        });
     }
-// Report read ajax call
 
-const renderReport = (reportHash, children) => {
-    // reportHash.images
-    //to do
-    // img_url = reportHash.attributes.
-    const event_desc = reportHash.attributes.event_desc
-    const susp_desc = reportHash.attributes.suspect_desc
-    const event_date = reportHash.attributes.created_at
-    const image_url = reportHash.attributes.images[0].image_link
+// render menu helper
+const renderMenu = (menu, menuParams) => {
+    for (menuItem in menuParams) {
+        let listItem = document.createElement("li")
+        let menuLink = document.createElement("a")
+        menuLink.href=menuParams[menuItem]
+        menuLink.innerText=menuItem
+        listItem.appendChild(menuLink)
+        menu.appendChild(listItem)
+    }
 
-    // document.getElementById("touchMe").innerHTML = event_desc;
+}
+
+//render reports helper
+const renderReport = (reportHash) => {
+    const report = new Report(reportHash)
+    const event_desc = report.event_desc
+    const susp_desc = report.suspect_desc
+    const event_date = report.event_date
+    const image_url = report.images[0].image_link
+
 
     const column = document.createElement("div")
     column.classList = "col s12 m4 l4"
@@ -76,44 +118,19 @@ const renderReport = (reportHash, children) => {
         column.appendChild(card)
         //append column to reports div 
         $("#reports .row")[0].appendChild(column)
+
 }   
 
-const createMap = () => {
-    const map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 39, lng: -95},
-        zoom: 4,
-        mapTypeId: 'hybrid',
-        disableDefaultUI: true,
-        zoomControl: true
-    });
+//gmaps config
+const mapConfigObj = {
+    center: {lat: 39, lng: -95},
+    zoom: 4,
+    mapTypeId: 'hybrid',
+    disableDefaultUI: true,
+    zoomControl: true
 }
 
-// render menu code
-const menuParams = {}
-const divList = $(".section.scrollspy")
-divList.each(function(index, section) {
-    sectionName = section.id
-    menuParams[toTitleCase(sectionName)] = `#${sectionName}`
-})
-
-const renderMenu = (menu, menuParams) => {
-    for (menuItem in menuParams) {
-        let listItem = document.createElement("li")
-        let menuLink = document.createElement("a")
-        menuLink.href=menuParams[menuItem]
-        menuLink.innerText=menuItem
-        // menuLink.target = "_blank"
-        listItem.appendChild(menuLink)
-        // listItem.addEventListener("click", (event) => {
-        //     event.preventDefault()
-        // })
-        menu.appendChild(listItem)
-    }
-    // sample vv
-    // <li><a href="Log-out" target="_blank">Log Out</a></li>
-}
-
-// helper
+// titlecase helper
 function toTitleCase(str) {
     return str.replace(
         /\w\S*/g,
@@ -123,7 +140,7 @@ function toTitleCase(str) {
     );
 }
 
-// build report cards helper
+// READ reports API call
 const getReportCards = () => {
     fetch(REPORTS_URL)
     .then(res => res.json())
@@ -132,7 +149,8 @@ const getReportCards = () => {
     })
 }
 
-// Report submit ajax call - TO DO
+// form SUBMIT report API call
+
 $('form').submit(function(event) {
     event.preventDefault();
     // get the form data
