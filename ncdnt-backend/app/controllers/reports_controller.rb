@@ -1,6 +1,6 @@
+require 'pry'
 class ReportsController < ApplicationController
     def index
-
         reports = Report.all
         render json: ReportSerializer.new(reports)
     end
@@ -12,22 +12,13 @@ class ReportsController < ApplicationController
     def delete
     end
     def create
-        # report = Report.new(report_params[:report])
-        # report.location = Location.new(report_params[:location_attributes])
-        # report.save
-        # comment = Comment.new(report_params[:comment_attributes])
-        # comment.report_id = report.id
-        # comment.save
-        # report_params[:images].each do |image_data|
-        #     image = Image.new(image_data)
-        #     image.report_id = report.id
-        #     image.save
-        # end
+        report = Report.create!(report_params)
+        render json: ReportSerializer.new(report)
     end
     def update
     end
 
     def report_params
-        params.require(:report).permit!
+        params.require(:report).permit(:event_desc, :suspect_desc, images_attributes: [:image_link, :image_checksum], location_attributes:[:lat,:lng])
     end
 end

@@ -5,16 +5,13 @@ const main = document.querySelector("main")
 
 document.addEventListener("DOMContentLoaded", () => onLoad())
     const onLoad = () => {
-        fetch(REPORTS_URL)
-        .then(res => res.json())
-        .then(json => {
-            json.data.forEach(report => renderReport(report, json.included))
-        })
+        getReportCards()
         const mobileMenu = document.getElementById("nav-mobile")
         const desktopMenu = document.getElementById("nav-desktop")
         renderMenu(mobileMenu, menuParams)
         renderMenu(desktopMenu, menuParams)
     }
+// Report read ajax call
 
 const renderReport = (reportHash, children) => {
     // reportHash.images
@@ -23,6 +20,8 @@ const renderReport = (reportHash, children) => {
     const event_desc = reportHash.attributes.event_desc
     const susp_desc = reportHash.attributes.suspect_desc
     const event_date = reportHash.attributes.created_at
+    const image_url = reportHash.attributes.images[0].image_link
+
     // document.getElementById("touchMe").innerHTML = event_desc;
 
     const column = document.createElement("div")
@@ -33,7 +32,7 @@ const renderReport = (reportHash, children) => {
             cardImageDiv.classList="card-image waves-effect waves-block waves-light"
                 const cardImage = document.createElement("img")
                 cardImage.className="activator"
-                cardImage.src="img/project1.jpg"
+                cardImage.src= image_url
             const cardContent = document.createElement("div")
             cardContent.className="card-content"
                 const cardTitle = document.createElement("span")
@@ -88,10 +87,9 @@ const createMap = () => {
         zoomControl: true
     });
 }
+
 // render menu code
-
 const menuParams = {}
-
 const divList = $(".section.scrollspy")
 divList.each(function(index, section) {
     sectionName = section.id
@@ -124,3 +122,59 @@ function toTitleCase(str) {
         }
     );
 }
+
+// build report cards helper
+const getReportCards = () => {
+    fetch(REPORTS_URL)
+    .then(res => res.json())
+    .then(json => {
+        json.data.forEach(report => renderReport(report, json.included))
+    })
+}
+
+// Report submit ajax call - TO DO
+$('form').submit(function(event) {
+    event.preventDefault();
+    // get the form data
+    // there are many ways to get this data using jQuery (you can use the class or id also)
+    const report = { 
+        
+            'event_desc'              : $('input[name=event_desc]').val(),
+            'suspect_desc'             : $('input[name=suspect_desc]').val(),
+            'location_attributes': {
+                'lat': $('input[name=location_lat]').val(),
+                'lng': $('input[name=location_lng]').val()
+            },
+            'images_attributes': [{
+                'image_link': $('input[name=image_link]').val(),
+                'image_checksum' : $('input[name=image_checksum]').val()
+            }]
+
+    };
+
+    const configObj = {
+        method        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(report)
+    }
+
+    const url = `${REPORTS_URL}` // the url where we want to POST
+
+    const submit = (url, configObj) => {
+        fetch(url, configObj)
+        .then(res => res.json())
+        .then(json => {
+            if (json.message)
+            //to do alert
+                window.alert(json.message)
+            else
+            //to do refresh report list
+                getReportCards()
+                window.alert("your report was submitted")
+            })
+    }
+    submit(url, configObj)
+});

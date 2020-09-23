@@ -18,31 +18,31 @@ ActiveRecord::Schema.define(version: 2020_09_11_213606) do
   create_table "comments", force: :cascade do |t|
     t.string "comment_text"
     t.integer "report_id"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "images", force: :cascade do |t|
     t.string "image_link"
     t.string "image_checksum"
     t.integer "report_id"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "locations", force: :cascade do |t|
     t.float "lat"
     t.float "lng"
     t.integer "report_id"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reports", force: :cascade do |t|
     t.string "suspect_desc"
     t.string "event_desc"
-    t.datetime "created_at", precision: 6
-    t.datetime "updated_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
