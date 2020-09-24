@@ -30,7 +30,7 @@ event_desc = [
 
 
 event_desc.each do |desc|
-    params = { report: { event_desc: desc, suspect_desc: desc, comments_attributes: [comment_text: desc], location_attributes: { lat: 10, lng:10 }, images_attributes: [image_link: "https://i.imgur.com/vgBpFWM.png", image_checksum: "120EA8A25E5D487BF68B5F7096440019"]} }
+    params = { report: { event_desc: desc, suspect_desc: desc, comments_attributes: [comment_text: desc], location_attributes: { lat: 10, lng:10 }, images_attributes: [image_link: "https://i.imgur.com/Y1aOM0J.jpg", image_checksum: "120EA8A25E5D487BF68B5F7096440019"]} }
     report = Report.new(params[:report])
     report.save!
 end
